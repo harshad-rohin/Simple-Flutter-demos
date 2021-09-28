@@ -177,8 +177,14 @@ class _WhatsAppState extends State<WhatsApp> with SingleTickerProviderStateMixin
                   ],
                 ),
 
-                const Text('Status'),
-                const Text('Calls')
+                const Center(
+                  child: Text('Status'),
+                ),
+
+                const Center(
+                  child: Text('Calls'),
+                ),
+
               ],
             ),
 
