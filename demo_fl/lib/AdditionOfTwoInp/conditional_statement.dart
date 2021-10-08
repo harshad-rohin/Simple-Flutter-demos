@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widget_provider.dart';
+import '../Constants/widget_provider.dart';
 
 void main() => const ConStmt();
 

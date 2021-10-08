@@ -1,23 +1,23 @@
-import 'package:demo_fl/fourth_page.dart';
-import 'package:demo_fl/second_page.dart';
+import 'package:demo_fl/Navigation/first_page.dart';
+import 'package:demo_fl/Navigation/third_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-void main() => const ThirdPage();
+void main() => const SecondPage();
 
-class ThirdPage extends StatefulWidget {
-  const ThirdPage({Key? key}) : super(key: key);
+class SecondPage extends StatefulWidget {
+  const SecondPage({Key? key}) : super(key: key);
 
   @override
-  _ThirdPageState createState() => _ThirdPageState();
+  _SecondPageState createState() => _SecondPageState();
 }
 
-class _ThirdPageState extends State<ThirdPage> {
+class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ThirdPage'),
+        title: const Text('SecondPage'),
       ),
       body: Column(
         children: [
@@ -27,7 +27,7 @@ class _ThirdPageState extends State<ThirdPage> {
                 setState(() {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const FourthPage()),
+                    MaterialPageRoute(builder: (context) => const ThirdPage()),
                   );
                 });
               },
@@ -44,7 +44,7 @@ class _ThirdPageState extends State<ThirdPage> {
                 setState(() {
                   Navigator.pop(
                     context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                    MaterialPageRoute(builder: (context) => const FirstPage()),
                   );
                 });
               },

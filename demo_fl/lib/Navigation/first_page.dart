@@ -1,6 +1,6 @@
-import 'package:demo_fl/fourth_page.dart';
-import 'package:demo_fl/second_page.dart';
-import 'package:demo_fl/third_page.dart';
+import 'package:demo_fl/Navigation/fourth_page.dart';
+import 'package:demo_fl/Navigation/second_page.dart';
+import 'package:demo_fl/Navigation/third_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
