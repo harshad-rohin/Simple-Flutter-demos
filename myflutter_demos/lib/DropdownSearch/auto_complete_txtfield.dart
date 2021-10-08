@@ -117,7 +117,7 @@ class _ACTxtFieldState extends State<ACTxtField> {
               child: Text('Click Here to View Text'),
             ),
 
-            // autocomplete_TextField => https://pub.dev/packages/auto_search
+            // auto_search => https://pub.dev/packages/auto_search
             const Padding(
                 child: Text('Auto Search Input'),
                 padding: EdgeInsets.only(top: 30, bottom: 10)
