@@ -48,22 +48,6 @@ class _Demo1State extends State<Demo1> {
     "Lakshadweep",
     "Puducherry"];
 
-  final List<String> searchableList = [
-    "Orange",
-    "Apple",
-    "Banana",
-    "Mango Orange",
-    "Carrot Apple",
-    "Yellow Watermelon",
-    "Zhe Fruit",
-    "White Oats",
-    "Dates",
-    "Raspberry Blue",
-    "Green Grapes",
-    "Red Grapes",
-    "Dragon Fruit"
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
