@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_design/login_screen.dart';
 import 'package:flutter_ui_design/uipage.dart';
 
+import 'BottonTabBar/bottom_bar.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,12 +21,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
         scaffoldBackgroundColor: Colors.blueGrey,
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(color: Colors.white),
-        )
+        // textTheme: const TextTheme(
+        //   bodyText1: TextStyle(color: Colors.white),
+        // )
       ),
       home: //const HomePage(),
-      const HomePage(),
+      const MainPage(),
       //LoginPage(),
     );
   }
