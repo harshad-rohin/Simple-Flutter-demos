@@ -51,7 +51,6 @@ class _ACTxtFieldState extends State<ACTxtField> {
   "Puducherry"];
 
   var _statesController = new TextEditingController();
-  var _statesController1 = new TextEditingController();
   String txt = "";
   bool no = false;
 
@@ -65,60 +64,6 @@ class _ACTxtFieldState extends State<ACTxtField> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-
-            // AdvancedSearch => (https://pub.dev/packages/advanced_search)
-            Padding(
-                child: Text('Advanced Search'),
-                padding: EdgeInsets.all(10.0)
-            ),
-            SafeArea(
-              child: Container(
-                margin: const EdgeInsets.only(top: 10.0, left: 30, right: 30, bottom: 10.0),
-                child: AdvancedSearch(
-                  data: state,
-                  maxElementsToDisplay: 10,
-                  singleItemHeight: 50,
-                  borderColor: Colors.grey,
-                  minLettersForSearch: 0,
-                  selectedTextColor: Color(0xFF3363D9),
-                  fontSize: 14,
-                  borderRadius: 12.0,
-                  hintText: 'Search Me',
-                  cursorColor: Colors.blueGrey,
-                  autoCorrect: false,
-                  focusedBorderColor: Colors.blue,
-                  searchResultsBgColor: Color(0xFAFAFA),
-                  disabledBorderColor: Colors.cyan,
-                  enabledBorderColor: Colors.black,
-                  enabled: true,
-                  caseSensitive: false,
-                  inputTextFieldBgColor: Colors.white10,
-                  clearSearchEnabled: true,
-                  itemsShownAtStart: 10,
-                  searchMode: SearchMode.CONTAINS,
-                  showListOfResults: true,
-                  unSelectedTextColor: Colors.black54,
-                  verticalPadding: 10,
-                  horizontalPadding: 10,
-                  hideHintOnTextInputFocus: true,
-                  hintTextColor: Colors.grey,
-                  onItemTap: (index, value) {
-                    //print("selected item Index is $index");
-                  },
-                  onSearchClear: () {
-                    //print("Cleared Search");
-                  },
-                  onSubmitted: (value, value2) {
-                    //print("Submitted: " + value);
-                  },
-                  onEditingProgress: (value, value2) {
-                    //print("TextEdited: " + value);
-                    //print("LENGTH: " + value2.length.toString());
-                  },
-                ),
-              ),
-            ),
-
             // autocomplete_TextField => (https://pub.dev/packages/autocomplete_textfield)
             Padding(
               child: Text('autocomplete TextField'),
@@ -173,9 +118,9 @@ class _ACTxtFieldState extends State<ACTxtField> {
             ),
 
             // autocomplete_TextField => https://pub.dev/packages/auto_search
-            Padding(
+            const Padding(
                 child: Text('Auto Search Input'),
-                padding: EdgeInsets.all(10.0)
+                padding: EdgeInsets.only(top: 30, bottom: 10)
             ),
 
             Padding(
