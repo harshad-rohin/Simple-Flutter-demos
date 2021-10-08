@@ -17,21 +17,15 @@ class SaleProductForm extends StatefulWidget {
 
 class _SaleProductFormState extends State<SaleProductForm> {
   bool roundOff = false;
-  TextEditingController partyName = new TextEditingController();
-  TextEditingController partyCont = new TextEditingController();
-  TextEditingController productName = new TextEditingController();
-  TextEditingController productAmt = new TextEditingController();
-  TextEditingController productDis = new TextEditingController();
-  TextEditingController rOffAmt = new TextEditingController();
-  TextEditingController totalAmt = new TextEditingController();
+  TextEditingController partyName = TextEditingController();
+  TextEditingController partyCont = TextEditingController();
+  TextEditingController productName = TextEditingController();
+  TextEditingController productAmt = TextEditingController();
+  TextEditingController productDis = TextEditingController();
+  TextEditingController rOffAmt = TextEditingController();
+  TextEditingController totalAmt = TextEditingController();
 
-  String pnm = "";
-  String pc = "";
-  String pn = "";
-  String pa = "";
-  String pt = "";
-
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   late AlertDialog dialog;
 
@@ -64,14 +58,14 @@ class _SaleProductFormState extends State<SaleProductForm> {
       contentPadding: EdgeInsets.zero,
       content: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: const [
           Padding(
-            child: Text('Party Name is: $pnm'),
+            child: Text('Party Name is: '),
             padding: EdgeInsets.all(10.0)
           ),
 
           Padding(
-              child: Text('Contact is: $pnm'),
+              child: Text('Contact is: '),
               padding: EdgeInsets.all(10.0)
           ),
 
@@ -115,7 +109,7 @@ class _SaleProductFormState extends State<SaleProductForm> {
                       child: SizedBox(
                         child: TextFormField(
                           controller: partyName,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'Enter Name',
                             labelText: 'Party Name',
                             enabledBorder: OutlineInputBorder(
@@ -151,7 +145,7 @@ class _SaleProductFormState extends State<SaleProductForm> {
                           },
                           controller: partyCont,
                           keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'Enter Contact No.',
                             labelText: 'Contact No.',
                             enabledBorder: OutlineInputBorder(
@@ -191,7 +185,7 @@ class _SaleProductFormState extends State<SaleProductForm> {
                           // validation
                           validator: validation,
                           controller: productName,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'Enter Product',
                             labelText: 'Product Name',
                             enabledBorder: OutlineInputBorder(
@@ -224,7 +218,7 @@ class _SaleProductFormState extends State<SaleProductForm> {
                               validator: validation,
                               controller: productAmt,
                               keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 hintText: '0.00',
                                 labelText: 'Product Amount',
                                 enabledBorder: OutlineInputBorder(
@@ -252,7 +246,7 @@ class _SaleProductFormState extends State<SaleProductForm> {
                             child: TextFormField(
                               controller: productDis,
                               keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 hintText: '0.00',
                                 labelText: 'Discount',
                                 enabledBorder: OutlineInputBorder(
