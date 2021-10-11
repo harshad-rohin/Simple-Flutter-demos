@@ -68,9 +68,15 @@ class _AutoCTxtFieldState extends State<AutoCTxtField> {
               suggestions: state,
               clearOnSubmit: false,
               textInputAction: TextInputAction.none,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'Enter State Name',
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
+                suffixIcon: GestureDetector(
+                  onTap: (){
+                    FocusScope.of(context).requestFocus(FocusNode());
+                  },
+                  child: const Icon(Icons.check_circle, size: 35.0,),
+                ),
               ),
 
               /// [itemBuilder]
