@@ -1,12 +1,13 @@
 //https://pub.dev/packages/decimal
 
 import 'package:decimal/decimal.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import '../Constants/colors.dart';
 
-void main() => SaleProductForm();
+void main() => const SaleProductForm();
 
 class SaleProductForm extends StatefulWidget {
   const SaleProductForm({Key? key}) : super(key: key);
@@ -96,8 +97,8 @@ class _SaleProductFormState extends State<SaleProductForm> {
             children: [
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(left: 5.0, top: 5.0, right: 5.0),
-                padding: EdgeInsets.all(20.0),
+                margin: const EdgeInsets.only(left: 5.0, top: 5.0, right: 5.0),
+                padding: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadiusDirectional.circular(5),
@@ -129,40 +130,69 @@ class _SaleProductFormState extends State<SaleProductForm> {
                       ),
                     ),
 
-                    Padding(padding: EdgeInsets.all(6.0)),
-
-                    Container(
-                      child: SizedBox(
-                        child: TextFormField(
-                          maxLength: 10,
-                          validator: (value){
-                            if(value!.length > 0 && value.length < 10){
-                              return "Invalid Contact no.";
-                            }
-                            else{
-                              return null;
-                            }
-                          },
-                          controller: partyCont,
-                          keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(
-                            hintText: 'Enter Contact No.',
-                            labelText: 'Contact No.',
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
-                            ),
-                            errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
+                    Row(
+                      children: [
+                        Container(
+                          width: 60.0,
+                          child: SizedBox(
+                            child: TextFormField(
+                              //enabled: false,
+                              readOnly: true,
+                              decoration: const InputDecoration(
+                                hintText: ' +91 ',
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
+
+                        const Padding(padding: EdgeInsets.all(6.0)),
+
+                        Flexible(
+                          flex: 2,
+                          fit: FlexFit.tight,
+                          child: Container(
+                            margin: EdgeInsets.only(top: 20),
+                            child: SizedBox(
+                              child: TextFormField(
+                                maxLength: 10,
+                                validator: (value){
+                                  if(value!.length > 0 && value.length < 10){
+                                    return "Invalid Contact no.";
+                                  }
+                                  else{
+                                    return null;
+                                  }
+                                },
+                                controller: partyCont,
+                                keyboardType: TextInputType.number,
+                                decoration: const InputDecoration(
+                                  hintText: 'Enter Contact No.',
+                                  labelText: 'Contact No.',
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(color: Color(0xFFD2DBE0), width: 3.0)
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+
+                      ],
                     ),
 
                   ],
@@ -170,8 +200,8 @@ class _SaleProductFormState extends State<SaleProductForm> {
               ),
 
               Container(
-                margin: EdgeInsets.only(left: 5.0, top: 5.0, right: 5.0),
-                padding: EdgeInsets.all(20.0),
+                margin: const EdgeInsets.only(left: 5.0, top: 5.0, right: 5.0),
+                padding: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadiusDirectional.circular(5),
@@ -205,7 +235,7 @@ class _SaleProductFormState extends State<SaleProductForm> {
                       ),
                     ),
 
-                    Padding(padding: EdgeInsets.all(6.0)),
+                    Padding(padding: const EdgeInsets.all(6.0)),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -238,7 +268,7 @@ class _SaleProductFormState extends State<SaleProductForm> {
                           ),
                         ),
 
-                        Padding(padding: EdgeInsets.all(20.0)),
+                        const Padding(padding: EdgeInsets.all(20.0)),
 
                         Container(
                           width: 150.0,
@@ -275,8 +305,8 @@ class _SaleProductFormState extends State<SaleProductForm> {
 
               Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(left: 5.0, top: 5.0, right: 5.0),
-                padding: EdgeInsets.all(20.0),
+                margin: const EdgeInsets.only(left: 5.0, top: 5.0, right: 5.0),
+                padding: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadiusDirectional.circular(5),
@@ -289,12 +319,9 @@ class _SaleProductFormState extends State<SaleProductForm> {
                       onPressed: (){
                         setState(() {
                           validate();
-                          // print(double.parse(productAmt.value.text)
-                          //     - double.parse(productDis.value.text)
-                          //     - double.parse(rOffAmt.value.text));
                         });
                       },
-                      child: Padding(
+                      child: const Padding(
                         child: Text('Calculate Total Amount'),
                         padding: EdgeInsets.all(15.0),
                       ),
