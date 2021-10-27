@@ -3,7 +3,7 @@ import 'package:auto_search/auto_search.dart';
 import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:flutter/material.dart';
 
-void main() => ACTxtField();
+void main() => const ACTxtField();
 
 class ACTxtField extends StatefulWidget {
   const ACTxtField({Key? key}) : super(key: key);
@@ -13,6 +13,8 @@ class ACTxtField extends StatefulWidget {
 }
 
 class _ACTxtFieldState extends State<ACTxtField> {
+  String enteredValue = "";
+  String newValue = "";
   List<String> state = [ "Andhra Pradesh",
   "Arunachal Pradesh",
   "Assam",
@@ -50,7 +52,7 @@ class _ACTxtFieldState extends State<ACTxtField> {
   "Lakshadweep",
   "Puducherry"];
 
-  var _statesController = new TextEditingController();
+  final _statesController = TextEditingController();
   String txt = "";
   bool no = false;
 
@@ -58,14 +60,14 @@ class _ACTxtFieldState extends State<ACTxtField> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('AutoCompleteTxtField'),
+        title: const Text('AutoCompleteTxtField'),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
             // autocomplete_TextField => (https://pub.dev/packages/autocomplete_textfield)
-            Padding(
+            const Padding(
               child: Text('autocomplete TextField'),
               padding: EdgeInsets.all(10.0)
             ),
@@ -76,11 +78,15 @@ class _ACTxtFieldState extends State<ACTxtField> {
                 suggestions: state,
                 clearOnSubmit: false,
                 textInputAction: TextInputAction.none,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Enter State Name',
                   border: OutlineInputBorder(),
                 ),
                 itemFilter: (String item, String query) {
+                  if (item != query){
+                    enteredValue = query;
+                  }
+                  // ***************
                   return item.toLowerCase().startsWith(query.toLowerCase());
                 },
                 itemSorter: (String a, String b){
@@ -91,7 +97,7 @@ class _ACTxtFieldState extends State<ACTxtField> {
                 },
                 itemBuilder: (context, String item){
                   return Container(
-                    padding: EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Column(
                       children: [
                         Text(item),
@@ -100,21 +106,30 @@ class _ACTxtFieldState extends State<ACTxtField> {
                   );
                 },
               ),
-              padding: EdgeInsets.all(10.0)
+              padding: const EdgeInsets.all(10.0)
             ),
 
             Padding(
-                child: Text('Entered Text is: $txt', style: TextStyle(fontSize: 20,),),
-                padding: EdgeInsets.all(20.0)
+                child: Text('Entered Text is: $txt', style: const TextStyle(fontSize: 20,),),
+                padding: const EdgeInsets.all(20.0)
             ),
 
             ElevatedButton(
               onPressed: (){
                 setState(() {
                   txt = _statesController.text;
+                  if(state.contains(_statesController.text) == false){
+                    newValue = enteredValue;
+                    print('new value: $newValue');
+                  }
+                  else{
+                    enteredValue = '';
+                    newValue = '';
+                    print('old value: ${_statesController.text}');
+                  }
                 });
               },
-              child: Text('Click Here to View Text'),
+              child: const Text('Click Here to View Text'),
             ),
 
             // auto_search => https://pub.dev/packages/auto_search
@@ -130,7 +145,7 @@ class _ACTxtFieldState extends State<ACTxtField> {
                 maxElementsToDisplay: 10,
                 onItemTap: (index) {},
               ),
-              padding: EdgeInsets.all(10)
+              padding: const EdgeInsets.all(10)
             ),
 
           ],

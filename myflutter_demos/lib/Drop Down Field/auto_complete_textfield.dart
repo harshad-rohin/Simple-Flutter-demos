@@ -12,6 +12,7 @@ class AutoCTxtField extends StatefulWidget {
 }
 
 class _AutoCTxtFieldState extends State<AutoCTxtField> {
+
   String enteredValue = '';
   String newValue = '';
   final _txtFieldController = TextEditingController();
@@ -54,6 +55,9 @@ class _AutoCTxtFieldState extends State<AutoCTxtField> {
     StateModel(35, 'Puducherry'),
   ];
 
+  GlobalKey<AutoCompleteTextFieldState<StateModel>> key1 = GlobalKey();
+
+  List<String> newState = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +68,7 @@ class _AutoCTxtFieldState extends State<AutoCTxtField> {
         children: [
           Padding(
             child: AutoCompleteTextField<StateModel>(
+              key: key1,
               controller: _txtFieldController,
               suggestions: state,
               clearOnSubmit: false,
@@ -92,6 +97,8 @@ class _AutoCTxtFieldState extends State<AutoCTxtField> {
 
               /// [itemFilter]
               itemFilter: (item, query) {
+                // print('item name: ${item.stateName}');
+                // print('query name: $query');
                 if (item.stateName != query){
                   enteredValue = query;
                 }
@@ -106,6 +113,7 @@ class _AutoCTxtFieldState extends State<AutoCTxtField> {
               /// [itemSubmitted]
               itemSubmitted: (item){
                 _txtFieldController.text = item.stateName;
+                enteredValue = item.stateName;
               },
             ),
             padding: const EdgeInsets.all(10.0)
@@ -113,19 +121,52 @@ class _AutoCTxtFieldState extends State<AutoCTxtField> {
 
           ElevatedButton(
             onPressed: (){
-              setState(() {
-                for (var item in state) {
-                  if (item.stateName.contains(_txtFieldController.text)) {
+              int i;
+              bool ch = false;
+              bool s = false;
+              try{
+                //print(state[0].stateName);
+                for(i = 0; i < state.length; i++){
+                  ch = state[i].stateName == _txtFieldController.text;
+                  if(ch == true){
+                    print('true');
                     enteredValue = '';
                     newValue = '';
                     print('old value: ${_txtFieldController.text}');
-                  }
-                  else{
-                    newValue = enteredValue;
-                    print('new value: $newValue');
+                    s = true;
+                    //break;
                   }
                 }
-              });
+
+                if(s == false && i == state.length){
+                  print('if new value entered');
+                  newValue = enteredValue;
+                  state.add(StateModel(state.last.id + 1, newValue));
+                  newState.add(newValue);
+                  print(newState);
+                  print('new value: $newValue');
+                }
+
+                // for (var item in state) {
+                //   if (item.stateName.contains(_txtFieldController.text)) {
+                //     print('if old value entered');
+                //     enteredValue = '';
+                //     newValue = '';
+                //     print('old value: ${_txtFieldController.text}');
+                //   }
+                //   else{
+                //     print('if new value entered');
+                //     newValue = enteredValue;
+                //     state.add(StateModel(state.last.id + 1, newValue));
+                //     newState.add(newValue);
+                //     print(newState);
+                //     print('new value: $newValue');
+                //   }
+                // }
+              }
+              catch(e){
+                print(e);
+              }
             },
             child: const Text('Ok'),
           ),

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'Constants/colors.dart';
-import 'StatefulWidget/stateful_widget.dart';
+import 'Drop Down Field/auto_complete_textfield.dart';
+import 'demos/expanded_panel.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
+/// [MyApp] is a main class of our project
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: MyColors.greenish,
-        scaffoldBackgroundColor: Color(0xFFD2DBE0),
+        scaffoldBackgroundColor: const Color(0xFFD2DBE0),
         textTheme: Theme
             .of(context)
             .textTheme
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Ubuntu',
         ),
       ),
-      home: MyFlutterApp(),
+      home: const AutoCTxtField(),
     );
   }
 }

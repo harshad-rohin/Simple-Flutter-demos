@@ -11,6 +11,11 @@ class ExpandedPanel extends StatefulWidget {
 }
 
 class _ExpandedPanelState extends State<ExpandedPanel> {
+  bool sale = false;
+  bool pur = false;
+  @override
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

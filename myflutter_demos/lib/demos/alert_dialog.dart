@@ -54,39 +54,39 @@ class _AlertDialogBoxState extends State<AlertDialogBox> {
 
   _displayDialog(BuildContext context) async {
     return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('TextField AlertDemo'),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                  controller: num1,
-                  decoration: const InputDecoration(hintText: "num1"),
-                ),
-                TextField(
-                  keyboardType: TextInputType.number,
-                  controller: num2,
-                  decoration: const InputDecoration(hintText: "num2"),
-                ),
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('TextField AlertDemo'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                controller: num1,
+                decoration: const InputDecoration(hintText: "num1"),
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                controller: num2,
+                decoration: const InputDecoration(hintText: "num2"),
+              ),
 
-                const Padding(padding: EdgeInsets.all(10.0)),
+              const Padding(padding: EdgeInsets.all(10.0)),
 
-                ElevatedButton(
-                  child: const Text('SUBMIT'),
-                  onPressed: () {
-                    setState(() {
-                      addition = f.format(double.parse(num1.text) + double.parse(num2.text));
-                    });
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            ),
-          );
-        }
+              ElevatedButton(
+                child: const Text('SUBMIT'),
+                onPressed: () {
+                  setState(() {
+                    addition = f.format(double.parse(num1.text) + double.parse(num2.text));
+                  });
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          ),
+        );
+      }
     );
   }
 
