@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myflutter_demos/AlertNotifier/alert_slider.dart';
+import 'package:myflutter_demos/Timer/timer_fun.dart';
 
 import 'Constants/colors.dart';
 import 'Drop Down Field/auto_complete_textfield.dart';
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Ubuntu',
         ),
       ),
-      home: const AutoCTxtField(),
+      home: const AlertSlider(),
     );
   }
 }
